@@ -1,0 +1,35 @@
+<ion-content class="ion-padding" fullscreen>
+  <h2 class="ion-text-center">ورود به اپلیکیشن</h2>
+
+  @if (!otpSent()) {
+  <ion-item>
+    <ion-label position="floating">شماره موبایل</ion-label>
+    <ion-input
+      type="tel"
+      [(ngModel)]="phone"
+      placeholder="مثلا 09123456789"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" class="ion-margin-top" (click)="sendOtp()">
+    ارسال کد تایید
+  </ion-button>
+  } @if (otpSent()) {
+  <ion-item>
+    <ion-label position="floating">کد تایید (OTP)</ion-label>
+    <ion-input
+      type="text"
+      [(ngModel)]="otp"
+      placeholder="کد تایید را وارد کنید"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" class="ion-margin-top" (click)="verifyOtp()">
+    تایید و ورود
+  </ion-button>
+  } @if (loginError()) {
+  <p style="color: red; text-align: center; margin-top: 10px">
+    {{ loginError() }}
+  </p>
+  }
+</ion-content>

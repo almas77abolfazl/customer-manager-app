@@ -34,4 +34,44 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+@font-face {
+  font-family: "Poppins";
+  src: url(assets/fonts/Poppins-Regular.ttf);
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(assets/fonts/Poppins-Bold.ttf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url(assets/fonts/IRANYekanX-Regular.woff2);
+  font-weight: normal;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url(assets/fonts/IRANYekanX-DemiBold.woff2);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url(assets/fonts/IRANYekanX-Bold.woff2);
+  font-weight: bolder;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url(assets/fonts/IRANYekanX-Medium.woff2);
+  font-weight: lighter;
+}
+
+:root {
+  body {
+    --ion-font-family: "Poppins";
+  }
+  body[dir="rtl"] {
+    --ion-font-family: "IRANYekanX";
+  }
+}

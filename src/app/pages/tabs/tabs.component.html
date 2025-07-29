@@ -1,0 +1,28 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+
+    <ion-tab-button tab="customers">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>مشتریان</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reports">
+      <ion-icon name="bar-chart-outline"></ion-icon>
+      <ion-label>گزارش‌ها</ion-label>
+    </ion-tab-button>
+
+    <div class="fab-button-wrapper">
+      <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+        <ion-fab-button [routerLink]="['/tabs/new-service']">
+          <ion-icon name="add-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+
+    <ion-tab-button tab="settings">
+      <ion-icon name="settings-outline"></ion-icon>
+      <ion-label>تنظیمات</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

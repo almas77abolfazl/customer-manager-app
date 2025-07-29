@@ -1,0 +1,14 @@
+ion-tab-bar.custom-tab-bar {
+  --background: #fff;
+  --color-selected: #3880ff;
+  --color: #8c8c8c;
+  position: relative;
+
+  .fab-button-wrapper {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+}

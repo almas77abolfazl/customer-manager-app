@@ -7,5 +7,11 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor() {}
+  constructor() {
+    const browserLang = localStorage.getItem('lang');
+    const lang = browserLang?.match(/en|fa/) ? browserLang : 'en';
+    // document.body.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
+    document.body.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('dir', 'rtl');
+  }
 }
