@@ -17,8 +17,15 @@
   <ion-segment-button value="inactive">غیرفعال</ion-segment-button>
 </ion-segment>
 
-<ion-list>
-  @for (customer of filteredCustomers; track $index) {
-  <app-customer-card [customer]="customer" (onView)="openCustomerDetails($event)" (onCall)="callCustomer($event)" />
-  }
-</ion-list>
+<ion-content>
+  <ion-list>
+    @for (customer of filteredCustomers; track $index) {
+    <app-customer-card [customer]="customer" (onView)="openCustomerDetails($event)" (onCall)="callCustomer($event)" />
+    }
+  </ion-list>
+
+   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="در حال بارگذاری...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
