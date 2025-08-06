@@ -1,17 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import {
-  RouteReuseStrategy,
-  provideRouter,
-  withPreloading,
-  PreloadAllModules,
-} from '@angular/router';
-import {
-  IonicRouteStrategy,
-  provideIonicAngular,
-} from '@ionic/angular/standalone';
+import { PreloadAllModules, RouteReuseStrategy, provideRouter, withPreloading } from '@angular/router';
 
-import { routes } from './app/app.routes';
+import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { addOutline, barChartOutline, callOutline, eyeOutline, peopleOutline, personAddOutline, settingsOutline } from 'ionicons/icons';
+
 import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -19,4 +14,14 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
   ],
+});
+
+addIcons({
+  'people-outline': peopleOutline,
+  'bar-chart-outline': barChartOutline,
+  'settings-outline': settingsOutline,
+  'add-outline': addOutline,
+  'call-outline': callOutline,
+  'person-add-outline': personAddOutline,
+  'eye-outline': eyeOutline,
 });

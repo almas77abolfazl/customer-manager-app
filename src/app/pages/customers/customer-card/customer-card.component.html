@@ -1,0 +1,31 @@
+<ion-card class="customer-card" (click)="select()">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="customer.avatar || 'assets/images/default-avatar.png'" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ customer.name }}</h2>
+      <p>{{ customer.carType || "نامشخص" }}</p>
+      @if (customer.lastVisit) {
+      <small>آخرین مراجعه: {{ customer.lastVisit | date : "yyyy/MM/dd" }}</small>
+      }
+    </ion-label>
+    <ion-badge color="{{ customer.status === 'active' ? 'success' : 'medium' }}">
+      {{ customer.status === "active" ? "فعال" : "غیرفعال" }}
+    </ion-badge>
+  </ion-item>
+  <ion-row class="card-actions">
+    <ion-col>
+      <ion-button size="small" fill="outline" (click)="call($event)">
+        <ion-icon slot="start" name="call-outline"></ion-icon>
+        تماس
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button size="small" fill="outline" (click)="view($event)">
+        <ion-icon slot="start" name="eye-outline"></ion-icon>
+        مشاهده
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-card>

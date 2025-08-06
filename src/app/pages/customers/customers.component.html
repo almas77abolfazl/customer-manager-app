@@ -1,3 +1,24 @@
-<p>
-  customers works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>مشتریان</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openAddCustomerModal()">
+        <ion-icon name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterCustomers()" placeholder="جستجو در مشتریان"></ion-searchbar>
+
+<ion-segment [(ngModel)]="filterStatus" (ionChange)="filterCustomers()">
+  <ion-segment-button value="all">همه</ion-segment-button>
+  <ion-segment-button value="active">فعال</ion-segment-button>
+  <ion-segment-button value="inactive">غیرفعال</ion-segment-button>
+</ion-segment>
+
+<ion-list>
+  @for (customer of filteredCustomers; track $index) {
+  <app-customer-card [customer]="customer" (onView)="openCustomerDetails($event)" (onCall)="callCustomer($event)" />
+  }
+</ion-list>

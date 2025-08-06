@@ -4,11 +4,20 @@ ion-tab-bar.custom-tab-bar {
   --color: #8c8c8c;
   position: relative;
 
-  .fab-button-wrapper {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+  ion-tab-button.add-button {
+    position: relative;
+    background: transparent;
+    flex: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: none;
+    pointer-events: auto;
+
+    ion-fab-button {
+      --background: #3880ff;
+      --color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
   }
 }

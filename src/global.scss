@@ -68,10 +68,13 @@
 }
 
 :root {
-  body {
-    --ion-font-family: "Poppins";
-  }
-  body[dir="rtl"] {
-    --ion-font-family: "IRANYekanX";
-  }
+  --ion-font-family: "Poppins";
+}
+
+body[dir="rtl"] {
+  --ion-font-family: "IRANYekanX";
+}
+
+* {
+  font-family: var(--ion-font-family) !important;
 }

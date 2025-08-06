@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -11,7 +11,5 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterModule, FormsModule],
 })
 export class TabsComponent implements OnInit {
-  constructor() {}
-
   ngOnInit() {}
 }
