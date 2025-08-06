@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? "ویرایش مشتری" : "مشخصات مشتری" }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (!isEditMode) {
+  <div>
+    <ion-item>
+      <ion-label>نام</ion-label>
+      <ion-text>{{ customer.name }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>شماره</ion-label>
+      <ion-text>{{ customer.phone }}</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>وضعیت</ion-label>
+      <ion-text>{{ customer.status === "active" ? "فعال" : "غیرفعال" }}</ion-text>
+    </ion-item>
+
+    <ion-button expand="full" color="primary" (click)="enableEdit()">ویرایش</ion-button>
+  </div>
+  } @if (isEditMode) {
+
+  <form (ngSubmit)="saveChanges()">
+    <ion-item>
+      <ion-label position="floating">نام</ion-label>
+      <ion-input [(ngModel)]="customer.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">شماره</ion-label>
+      <ion-input [(ngModel)]="customer.phone" name="phone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>وضعیت</ion-label>
+      <ion-select [(ngModel)]="customer.status" name="status">
+        <ion-select-option value="active">فعال</ion-select-option>
+        <ion-select-option value="inactive">غیرفعال</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">ذخیره تغییرات</ion-button>
+  </form>
+  }
+</ion-content>

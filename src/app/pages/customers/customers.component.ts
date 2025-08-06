@@ -21,6 +21,7 @@ export class CustomersComponent implements OnInit {
   pageSize = 20;
   hasMore = true;
   private customerService = inject(MockCustomerService);
+  modalController = inject(ModalController);
 
   ngOnInit(): void {
     this.loadCustomers();
@@ -42,8 +43,23 @@ export class CustomersComponent implements OnInit {
     window.open(`tel:${phone}`);
   }
 
-  openAddCustomerModal() {
-    // باز کردن فرم ثبت مشتری
+  async openAddCustomerModal() {
+    const modal = await this.modalController.create({
+      component: CustomerDetailModalComponent,
+      componentProps: {
+        mode: 'create',
+      },
+    });
+
+    modal.onDidDismiss().then((res) => {
+      const newCustomer = res.data?.customer;
+      if (newCustomer) {
+        this.customers.push(newCustomer);
+        this.filterCustomers();
+      }
+    });
+
+    await modal.present();
   }
 
   loadCustomers() {
@@ -70,6 +86,8 @@ export class CustomersComponent implements OnInit {
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { CustomerDetailModalComponent } from './customer-detail-modal/customer-detail-modal.component';
+import { ModalController } from '@ionic/angular/standalone';
 
 @Injectable({ providedIn: 'root' })
 export class MockCustomerService {

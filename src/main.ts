@@ -3,7 +3,7 @@ import { PreloadAllModules, RouteReuseStrategy, provideRouter, withPreloading } 
 
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { addOutline, barChartOutline, callOutline, eyeOutline, peopleOutline, personAddOutline, settingsOutline } from 'ionicons/icons';
+import { addOutline, barChartOutline, callOutline, eyeOutline, peopleOutline, personAddOutline, settingsOutline, trashOutline } from 'ionicons/icons';
 
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
@@ -24,4 +24,5 @@ addIcons({
   'call-outline': callOutline,
   'person-add-outline': personAddOutline,
   'eye-outline': eyeOutline,
+  'trash-outline': trashOutline,
 });
