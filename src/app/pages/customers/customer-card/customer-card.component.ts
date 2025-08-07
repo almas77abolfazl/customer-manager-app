@@ -1,4 +1,3 @@
-import { CommonModule, DatePipe } from '@angular/common';
 import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { Customer } from 'src/app/models/customer.model';
@@ -8,7 +7,7 @@ import { AlertController, ModalController } from '@ionic/angular/standalone';
 @Component({
   selector: 'app-customer-card',
   standalone: true,
-  imports: [IonicModule, DatePipe],
+  imports: [IonicModule],
   templateUrl: './customer-card.component.html',
   styleUrls: ['./customer-card.component.scss'],
 })

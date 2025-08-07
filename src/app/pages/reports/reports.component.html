@@ -1,3 +1,41 @@
-<p>
-  reports works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>گزارش‌ها</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding reports-page">
+  <div class="kpi-container">
+    @for(kpi of kpis; track kpi.title){
+    <ion-card class="kpi-card">
+      <ion-card-header>
+        <ion-card-title>{{ kpi.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h2>{{ kpi.value }}</h2>
+        <p>{{ kpi.description }}</p>
+      </ion-card-content>
+    </ion-card>
+    }
+  </div>
+
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-title>مراجعات در ماه اخیر</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas baseChart [data]="chartData" [options]="chartOptions" [type]="'bar'"> </canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="chart-card">
+    <ion-card-header>
+      <ion-card-title>نمودار درآمد ماهانه</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas baseChart [data]="barChartData" [options]="chartOptions" [type]="'bar'"> </canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" (click)="exportToExcel()">خروجی اکسل</ion-button>
+</ion-content>

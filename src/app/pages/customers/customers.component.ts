@@ -103,6 +103,7 @@ export class MockCustomerService {
         avatar: '',
         status: i % 2 === 0 ? 'active' : 'inactive',
         carType: ['پژو ۴۰۵', 'دنا', 'پراید', 'سمند', 'تیبا'][i % 5],
+        lastVisit: new Date().toLocaleDateString('fa-IR')
       });
     }
   }

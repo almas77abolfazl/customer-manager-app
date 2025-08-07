@@ -1,0 +1,39 @@
+.reports-page {
+  .kpi-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .kpi-card {
+    flex: 1 1 calc(50% - 12px);
+    min-width: 140px;
+    text-align: center;
+
+    ion-card-title {
+      font-size: 14px;
+      color: #888;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 8px 0 4px;
+    }
+
+    p {
+      font-size: 12px;
+      color: #aaa;
+    }
+  }
+
+  .chart-card {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}

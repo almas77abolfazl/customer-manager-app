@@ -7,7 +7,7 @@
       <h2>{{ customer.name }}</h2>
       <p>{{ customer.carType || "نامشخص" }}</p>
       @if (customer.lastVisit) {
-      <small>آخرین مراجعه: {{ customer.lastVisit | date : "yyyy/MM/dd" }}</small>
+      <small>آخرین مراجعه: {{ customer.lastVisit  }}</small>
       }
     </ion-label>
     <ion-badge color="{{ customer.status === 'active' ? 'success' : 'medium' }}">

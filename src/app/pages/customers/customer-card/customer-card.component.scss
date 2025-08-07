@@ -1,0 +1,49 @@
+.customer-card {
+  margin: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  ion-item {
+    --padding-start: 12px;
+    --inner-padding-end: 12px;
+    --border-radius: 16px 16px 0 0;
+  }
+
+  ion-avatar img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  p, small {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+  }
+
+  .card-actions {
+    padding: 0 12px 12px;
+    display: flex;
+    justify-content: space-between;
+
+    ion-button {
+      --border-radius: 10px;
+      font-size: 13px;
+    }
+  }
+}
