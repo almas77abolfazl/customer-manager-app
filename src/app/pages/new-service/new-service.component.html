@@ -1,3 +1,56 @@
-<p>
-  new-service works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>سرویس جدید</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>انتخاب مشتری</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-searchbar placeholder="جستجوی مشتری..." [(ngModel)]="customerSearch" (ionInput)="searchCustomers()"> </ion-searchbar>
+
+      @if (filteredCustomers.length > 0) {
+      <ion-list>
+        @for (customer of filteredCustomers; track $index) {
+        <ion-item button (click)="selectCustomer(customer)">
+          {{ customer.name }}
+        </ion-item>
+        }
+      </ion-list>
+      } @if (customerSearch && filteredCustomers.length === 0) {
+      <div class="text-center">
+        <p>مشتری یافت نشد</p>
+        <ion-button expand="block" fill="outline" color="primary" (click)="showNewCustomerForm = true"> ایجاد مشتری جدید </ion-button>
+      </div>
+      } @if (showNewCustomerForm) {
+      <div class="form-section">
+        <ion-input label="نام مشتری" labelPlacement="stacked" [(ngModel)]="newCustomer.name"></ion-input>
+        <ion-input label="شماره تماس" labelPlacement="stacked" [(ngModel)]="newCustomer.phone"></ion-input>
+        <ion-button expand="block" color="success" (click)="createCustomer()">ثبت مشتری</ion-button>
+      </div>
+      }
+    </ion-card-content>
+  </ion-card>
+  @if (selectedCustomer) {
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>جزئیات سرویس</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-select label="نوع سرویس" labelPlacement="stacked" [(ngModel)]="service.type">
+        <ion-select-option value="oil-change">تعویض روغن</ion-select-option>
+        <ion-select-option value="filter-change">تعویض فیلتر</ion-select-option>
+        <ion-select-option value="inspection">بازرسی</ion-select-option>
+      </ion-select>
+
+      <ion-input label="مبلغ (تومان)" type="number" labelPlacement="stacked" [(ngModel)]="service.price"></ion-input>
+      <ion-textarea label="یادداشت" labelPlacement="stacked" [(ngModel)]="service.notes"></ion-textarea>
+
+      <ion-button expand="block" color="primary" (click)="saveService()">ثبت سرویس</ion-button>
+    </ion-card-content>
+  </ion-card>
+  }
+</ion-content>
